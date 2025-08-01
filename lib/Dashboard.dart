@@ -525,7 +525,34 @@ class _DashboardState extends State<Dashboard> {
             ],
 
           ),
-          actions: [Icon(Icons.notifications_sharp, size: 30,)],
+          actions: [
+
+            Stack(
+              clipBehavior: Clip.none,
+              children: [
+                IconButton(onPressed: (){
+                  // Navigator.push(context, MaterialPageRoute(builder: (context)=> #))
+                }, icon: Icon(FontAwesomeIcons.solidBell,size: 30,),),
+                Positioned(
+                    right: 15,
+                    top: -6,
+                    child: Container(
+
+                      padding: EdgeInsets.all(6),
+                      decoration: BoxDecoration(
+                        color: Colors.red,
+                        shape: BoxShape.circle,
+
+
+                      ),
+                      child: Text("3",style: TextStyle(
+                          fontWeight: FontWeight.bold, color: Colors.white,fontSize: 12
+                      ),),
+                    ))
+              ],
+            )
+
+          ],
         ),
         body: SingleChildScrollView(
           child: Column(
