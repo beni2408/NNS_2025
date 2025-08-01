@@ -3,6 +3,7 @@ import'package:flutter/material.dart';
 // import './signuppage.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
+import './notificationdashboardpage.dart';
 
 
 // class Invitation1{
@@ -531,7 +532,7 @@ class _DashboardState extends State<Dashboard> {
               clipBehavior: Clip.none,
               children: [
                 IconButton(onPressed: (){
-                  // Navigator.push(context, MaterialPageRoute(builder: (context)=> #))
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>dashnotify()));
                 }, icon: Icon(FontAwesomeIcons.solidBell,size: 30,),),
                 Positioned(
                     right: 15,
