@@ -2,7 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import './AppTheme.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
+import './Dashboard.dart';
 class dashnotify extends StatefulWidget {
   const dashnotify({super.key});
 
@@ -13,6 +13,7 @@ class dashnotify extends StatefulWidget {
 class _dashnotifyState extends State<dashnotify> {
   @override
   Widget build(BuildContext context) {
+    String currentPage = "notifications";
 
     //Widget for  new CDME Notification
     Widget newCDMEnotificationcard( String projtitle, String buttontext, String when) {
@@ -330,37 +331,164 @@ class _dashnotifyState extends State<dashnotify> {
       );
     }
     return  Scaffold(
+      backgroundColor: AppTheme.backgroundColor,
+      appBar: AppBar(
         backgroundColor: AppTheme.backgroundColor,
-        appBar: AppBar(
-          backgroundColor: AppTheme.backgroundColor,
-          leading: Builder(
-            builder: (context) => IconButton(
-              icon: Icon(Icons.arrow_back, size: 30),
-              onPressed: () {
-                Navigator.pop(context); // open sidebar
-              },
-            ),
+        leading: Builder(
+          builder: (context) => IconButton(
+            icon: Icon(Icons.arrow_back, size: 30),
+            onPressed: () {
+              Navigator.pop(context); // open sidebar
+            },
           ),
-          automaticallyImplyLeading: false,
-          centerTitle: true,
-
-          title: Text("Notifications", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22)),
         ),
-        body:
-        SingleChildScrollView(
-          child: Column(
+        automaticallyImplyLeading: false,
+        centerTitle: true,
 
-            children: [
-              // newCDMEnotificationcard(noticon, projtitle, notetype, buttontext, when)
+        title: Text("Notifications", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22)),
+      ),
+      body:
+      SingleChildScrollView(
+        child: Column(
 
-              newCDMEnotificationcard( "Project Alpha Feature Completion", "View and Add weightage", "5 minutes ago"),
-              weightagenotificationcard("Client meetiing Prep", "View Details", "1hr ago"),
-              appealreqnotificationcard("Sprint Planning Lead ", "Review Appeal", "Yesterday"),
-              newExecutionnotificationcard("Year of the Employee", "View Execution", "2 days ago", "David")
-            ],
-          ),
-        )
+          children: [
+            // newCDMEnotificationcard(noticon, projtitle, notetype, buttontext, when)
 
+            newCDMEnotificationcard( "Project Alpha Feature Completion", "View and Add weightage", "5 minutes ago"),
+            weightagenotificationcard("Client meetiing Prep", "View Details", "1hr ago"),
+            appealreqnotificationcard("Sprint Planning Lead ", "Review Appeal", "Yesterday"),
+            newExecutionnotificationcard("Year of the Employee", "View Execution", "2 days ago", "David")
+          ],
+        ),
+      ),
+      // bottom app bar
+      bottomNavigationBar: BottomAppBar(
+        height: 86,
+        // shape: CircularNotchedRectangle(),
+
+        color: AppTheme.backgroundColor,
+        // notchMargin: 06,
+        child: Row(
+          spacing: 1,
+          // mainAxisAlignment: MainAxisAlignment.spaceAround,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+
+            // padding: const EdgeInsets.only(bottom: 9.0),
+            Column(
+
+
+              mainAxisSize: MainAxisSize.min,
+              children: [
+
+                TextButton(onPressed: (){
+                  if(currentPage != "dashboard"){
+                    setState(() {
+                      currentPage =="dashboard";
+                    });
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> Dashboard(nameD: "Jascar", emailD: "jascar@neuralnestsolutions.com", passwordD: "Jascar@1")));
+                  }
+                },
+
+
+                  child: Column(
+                    spacing: 5,
+                    children: [
+                      Icon(FontAwesomeIcons.palette,color: currentPage == "dashboard" ? AppTheme.primaryColor : Colors.grey, size: 20,) ,
+                      Text("Dashboard", style: TextStyle(color: currentPage == "dashboard" ? AppTheme.primaryColor : Colors.grey , fontSize: 15),),
+
+                    ],
+                  ),)
+
+              ],
+            ),
+
+            Column(
+
+
+              mainAxisSize: MainAxisSize.min,
+              children: [
+
+                TextButton(onPressed: (){
+                  if(currentPage != "log_effort"){
+                    setState(() {
+                      currentPage =="log_effort";
+                    });
+                    // Navigator.push(context, MaterialPageRoute(builder: (context)=> Dashboard(nameD: "Jascar", emailD: "jascar@neuralnestsolutions.com", passwordD: "Jascar@1")));
+                  }
+                },
+
+
+                  child: Column(
+                    spacing: 5,
+                    children: [
+                      Icon(FontAwesomeIcons.pencil,color: currentPage == "log_effort" ? AppTheme.primaryColor : Colors.grey, size: 20,) ,
+                      Text("Log Effort", style: TextStyle(color: currentPage == "log_effort" ? AppTheme.primaryColor : Colors.grey , fontSize: 15),),
+
+                    ],
+                  ),)
+
+              ],
+            ),
+            Column(
+
+
+              mainAxisSize: MainAxisSize.min,
+              children: [
+
+                TextButton(onPressed: (){
+                  if(currentPage != "notifications"){
+                    setState(() {
+                      currentPage =="notifications";
+                    });
+                    // Navigator.push(context, MaterialPageRoute(builder: (context)=> Dashboard(nameD: "Jascar", emailD: "jascar@neuralnestsolutions.com", passwordD: "Jascar@1")));
+                  }
+                },
+
+
+                  child: Column(
+                    spacing: 5,
+                    children: [
+                      Icon(FontAwesomeIcons.solidBell,color: currentPage == "notifications" ? AppTheme.primaryColor : Colors.grey, size: 20,) ,
+                      Text("Notifications", style: TextStyle(color: currentPage == "notifications" ? AppTheme.primaryColor : Colors.grey , fontSize: 15),),
+
+                    ],
+                  ),)
+
+              ],
+            ),
+            Column(
+
+
+              mainAxisSize: MainAxisSize.min,
+              children: [
+
+                TextButton(onPressed: (){
+                  if(currentPage != "history"){
+                    setState(() {
+                      currentPage =="history";
+                    });
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> dashnotify()));
+                  }
+                },
+
+
+                  child: Column(
+                    spacing: 5,
+                    children: [
+                      Icon(FontAwesomeIcons.history,color: currentPage == "history" ? AppTheme.primaryColor : Colors.grey, size: 20,) ,
+                      Text("History", style: TextStyle(color: currentPage == "history" ? AppTheme.primaryColor : Colors.grey , fontSize: 15),),
+
+                    ],
+                  ),)
+
+              ],
+            ),
+
+
+          ],
+        ),
+      ),
     );
   }
 }
