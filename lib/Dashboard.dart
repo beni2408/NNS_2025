@@ -723,8 +723,6 @@ class _DashboardState extends State<Dashboard> {
                       currentPage =="notifications";
                     });
                     Navigator.push(context, MaterialPageRoute(builder: (context)=> dashnotify()));
-
-                    // Navigator.push(context, MaterialPageRoute(builder: (context)=> Dashboard(nameD: "Jascar", emailD: "jascar@neuralnestsolutions.com", passwordD: "Jascar@1")));
                   }
                 },
 
@@ -751,11 +749,9 @@ class _DashboardState extends State<Dashboard> {
                     setState(() {
                       currentPage =="history";
                     });
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> dashnotify()));
+                    // Navigator.push(context, MaterialPageRoute(builder: (context)=> dashnotify()));
                   }
                 },
-
-
                   child: Column(
                     spacing: 5,
                     children: [

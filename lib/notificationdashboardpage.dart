@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import './AppTheme.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import './Dashboard.dart';
+
 class dashnotify extends StatefulWidget {
   const dashnotify({super.key});
 
@@ -441,7 +442,7 @@ class _dashnotifyState extends State<dashnotify> {
                     setState(() {
                       currentPage =="notifications";
                     });
-                    // Navigator.push(context, MaterialPageRoute(builder: (context)=> Dashboard(nameD: "Jascar", emailD: "jascar@neuralnestsolutions.com", passwordD: "Jascar@1")));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> dashnotify()));
                   }
                 },
 
@@ -468,11 +469,9 @@ class _dashnotifyState extends State<dashnotify> {
                     setState(() {
                       currentPage =="history";
                     });
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> dashnotify()));
+                    // Navigator.push(context, MaterialPageRoute(builder: (context)=> dashnotify()));
                   }
                 },
-
-
                   child: Column(
                     spacing: 5,
                     children: [
