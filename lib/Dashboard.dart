@@ -730,8 +730,20 @@ class _DashboardState extends State<Dashboard> {
                   child: Column(
                     spacing: 5,
                     children: [
-                      Icon(FontAwesomeIcons.solidBell,color: currentPage == "notifications" ? AppTheme.primaryColor : Colors.grey, size: 20,) ,
-                      Text("Notifications", style: TextStyle(color: currentPage == "notifications" ? AppTheme.primaryColor : Colors.grey , fontSize: 15),),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Icon(FontAwesomeIcons.solidBell,color: currentPage == "notifications" ? AppTheme.primaryColor : Colors.grey, size: 20,),
+                          CircleAvatar(
+
+                            radius: 8 ,
+                            backgroundColor: Colors.red,
+                            child: Text("3",style: TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold),) ,
+                          ),
+                        ],
+                      ) ,
+
+                      Text("Notifications", style: TextStyle(color: currentPage == "notifications" ? AppTheme.primaryColor : Colors.grey , fontSize: 14),),
 
                     ],
                   ),)
